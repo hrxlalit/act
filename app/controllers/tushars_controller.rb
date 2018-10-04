@@ -1,0 +1,2 @@
+class TusharsController < ApplicationController
+end

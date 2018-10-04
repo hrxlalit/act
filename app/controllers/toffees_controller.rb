@@ -1,0 +1,2 @@
+class ToffeesController < ApplicationController
+end
