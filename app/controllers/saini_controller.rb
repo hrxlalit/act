@@ -1,0 +1,2 @@
+class SainiController < ApplicationController
+end

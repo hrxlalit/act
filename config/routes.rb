@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   	mount ActionCable.server, at: '/cable'
+	resources :saini 
+	resources :lalit 
 	namespace :api do
 		namespace :v1 do
    			resources :users

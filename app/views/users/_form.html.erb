@@ -20,8 +20,69 @@
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
-
+  <div class="select">
+  <%= form.select(:city , City::GUIDE_TYPES , {:size => 1} , class: "") %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<!-- 
+<style type="text/css">
+  .select{
+    height:100px;
+    overflow:scroll;
+}
+</style> -->
+
+<p>Which is the most annoing browser of them all:</p>
+<!-- <select id="sel" size = "1">
+    <option></option>
+    <option>IE 9</option>
+    <option>IE 10</option>
+    <option>Edge</option>
+    <option>Firefox</option>
+    <option>Chrome</option>
+    <option>Opera</option>
+    <option>Safari</option>
+    <option>UC Browser</option>
+</select> -->
+
+<script type="text/javascript">
+  document.getElementById('user_city').setAttribute('size', 1);
+  document.getElementById('user_city').addEventListener('click', onClickHandler);
+document.getElementById('user_city').addEventListener('mousedown', onMouseDownHandler);
+
+function onMouseDownHandler(e){
+  var el = e.currentTarget;
+  
+    if(el.hasAttribute('size') && el.getAttribute('size') == '1'){
+      e.preventDefault();    
+    }
+}
+function onClickHandler(e) {
+  var el = e.currentTarget; 
+
+    if (el.getAttribute('size') == '1') {
+        el.className += " selectOpen";
+        el.setAttribute('size', '6');
+    }
+    else {
+        el.className = '';
+        el.setAttribute('size', '1');
+    }
+}
+
+</script>
+
+<style type="text/css">
+  select {
+    position: absolute;
+    z-index: 0;
+}
+.selectOpen {
+    z-index:9;
+}
+</style>
+

@@ -1,0 +1,2 @@
+class LalitsController < ApplicationController
+end

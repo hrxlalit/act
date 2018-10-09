@@ -1,12 +1,12 @@
 class MyGenGenerator < Rails::Generators::NamedBase
   source_root File.expand_path("/home/amit_mobiloitte/Desktop/act/")
  def copy_initializer_file
-    create_file "app/controllers/#{file_name.pluralize}_controller.rb" , "class #{file_name.camelize.pluralize}Controller < ApplicationController
+    create_file "app/controllers/#{file_name}_controller.rb" , "class #{file_name.camelize}Controller < ApplicationController
 end"
   end
 
   def create_initializer_file
-    create_file "app/views/#{file_name.pluralize}/#{'index'}.html.erb" , "hello you're in app/views/#{file_name.pluralize}/#{'index'}.html.erb"
+    create_file "app/views/#{file_name}/#{'index'}.html.erb" , "hello you're in app/views/#{file_name}/#{'index'}.html.erb"
   end
 
   	def gsub_file
@@ -15,7 +15,7 @@ end"
 		p plus
   		File.open('config/routes.rb', 'r+') do |file|
 		  lines = file.each_line.to_a
- 		  lines[1] = "#{plus}resources :#{file_name} \n"
+ 		  lines[1] = "#{plus}\tresources :#{file_name} \n"
   		  file.rewind
 		  file.write(lines.join)
 		end
